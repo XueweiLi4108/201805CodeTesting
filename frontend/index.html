@@ -6,12 +6,13 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>To do list app</title>
 </head>
 <body>
 
-<div ng-app="todoapp" ng-controller="appCtrl">
+<div ng-app="todoapp" ng-controller="appCtrl" class="row" style='margin-top: 10px; margin-bottom: 10px;'>
 
-    <p>Input something in the input box:</p>
+    <!-- <p>Input something in the input box:</p>
     <p>Name: <input type="text" ng-model="name"></p>
     <p ng-bind="name"></p>
     <ul>
@@ -21,8 +22,20 @@
     </ul>
 
     <form action="">
-        
+
+    </form> -->
+    
+    <form name="frm" ng-submit="addTodo()">
+        <input type="text" ng-model="name" required />
+        <button ng-disabled="frm.$invalid">Add</button>
     </form>
+    <ul>
+        <li ng-repeat="todo in todoList">
+            <input type="checkbox" ng-model="todo.done">
+            <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+        </li>
+    </ul>
+
 
 </div>
 

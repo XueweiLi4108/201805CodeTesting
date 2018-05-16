@@ -33,6 +33,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         //
+        $todo = new Todo;
         return response()->json([
             "this uri is todos, http method is POST",
             "page is used to store a new todo task into database",

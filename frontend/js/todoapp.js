@@ -1,14 +1,18 @@
 var app = angular.module('todoapp', []);
 
-app.controller('appCtrl', function($scope) {
-    $scope.name = "John";
+app.controller('appCtrl', function($scope,$http) {
+    // $scope.name = "John";
+    $scope.todoList = [];
+    $http.get("http://localhost:8888")
+    .then(function(response) {
+        $scope.todoList = response.data;
+    });
     /**
      * TODO:
      * 1.use $http to call backend rest API
      * GET todos(Which is corresponding to index() function inside TodoController)(AJAX CALL)
      * 2.store all data in todolist variable, then use ng-repeat to show a list(using ul li tag) in index.html
      */
-    $scope.todoList = undefined;
 
     /**
      * TODO:

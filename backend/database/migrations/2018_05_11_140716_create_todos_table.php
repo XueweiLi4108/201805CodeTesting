@@ -13,7 +13,7 @@ class CreateTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
+        Schema::create('todo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('task');
             $table->enum('status', ['complete', 'pending']);;
